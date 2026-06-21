@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GovStatus BR — Monitoramento em Tempo Real dos Serviços Públicos</title>
+<meta name="description" content="Monitor open source de uptime e latência dos portais governamentais brasileiros. Transparência digital para cidadãos.">
+<meta name="author" content="Rafael Ferreira">
+<meta name="theme-color" content="#009c3b">
+<link rel="canonical" href="https://rafaelferreiradasilva.com.br/gov-status/">
+<meta property="og:title" content="GovStatus BR — Status dos Serviços Públicos">
+<meta property="og:description" content="Veja em tempo real quais portais do governo estão online, instáveis ou fora do ar.">
+<meta property="og:image" content="assets/img/logo.png">
+<meta property="og:url" content="https://rafaelferreiradasilva.com.br/gov-status/">
+<link rel="icon" type="image/png" href="assets/img/logo.png">
+<link rel="apple-touch-icon" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="GovStatus BR">
+      <div class="brand-text">
+        <h1>GOV STATUS BR</h1>
+        <p>Monitoramento em Tempo Real dos Serviços Públicos Brasileiros</p>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="https://github.com/rafaelferreira2312/gov-status-br" target="_blank" rel="noopener">GitHub</a>
+      <a href="#sobre">Sobre</a>
+    </nav>
+    <div class="search-box">
+      <input type="search" id="search" placeholder="Pesquisar órgão ou site..." aria-label="Pesquisar">
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div id="alert-banner" class="alert-banner hidden">
+    <strong data-alert-msg>ATENÇÃO</strong>
+    <span data-alert-sub>Carregando status...</span>
+  </div>
+
+  <div class="main-grid">
+    <section>
+      <h2 class="section-title">Serviços Monitorados</h2>
+      <div class="tabs">
+        <button class="tab active" data-filter="all">Todos</button>
+        <button class="tab" data-filter="federal">Federal</button>
+        <button class="tab" data-filter="state">Estadual</button>
+        <button class="tab" data-filter="municipal">Municipal</button>
+      </div>
+      <div id="cards-grid" class="cards-grid">
+        <div class="loading">Carregando status dos órgãos...</div>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="stat-panel">
+        <h2 class="section-title">Estatísticas em Tempo Real</h2>
+        <div class="stat-item">
+          <label>Total de Órgãos Monitorados</label>
+          <div class="value" id="stat-total">—</div>
+        </div>
+        <div class="stat-item">
+          <label>Órgãos com Problemas</label>
+          <div class="value red" id="stat-problems">—</div>
+        </div>
+        <div class="stat-item">
+          <label>Órgãos Online</label>
+          <div class="value green" id="stat-online">—</div>
+        </div>
+        <hr class="stat-divider">
+        <div class="stat-item">
+          <label>Uptime Geral Agora</label>
+          <div class="value green" id="stat-uptime">—</div>
+        </div>
+        <p class="activity" id="last-update">Aguardando primeira checagem...</p>
+        <hr class="stat-divider">
+        <p class="activity">Projeto open source. Dados coletados por requisições HTTP leves a cada minuto.</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer" id="sobre">
+  <p>
+    <a href="https://github.com/rafaelferreira2312/gov-status-br" target="_blank" rel="noopener">Projeto Open Source</a>
+    <a href="https://github.com/rafaelferreira2312/gov-status-br/issues" target="_blank" rel="noopener">Reportar erro</a>
+    <a href="https://rafaelferreiradasilva.com.br/">Rafael Ferreira</a>
+  </p>
+  <p style="margin-top:0.5rem">GovStatus BR · Apache-2.0 · Transparência digital para o cidadão brasileiro</p>
+</footer>
+
+<script src="assets/js/dashboard.js"></script>
+</body>
+</html>

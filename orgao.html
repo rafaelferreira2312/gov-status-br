@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Órgão — GovStatus BR</title>
+<meta name="description" content="Detalhes de uptime, latência e histórico de incidentes de um órgão público brasileiro.">
+<meta name="theme-color" content="#009c3b">
+<link rel="icon" type="image/png" href="assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="GovStatus BR">
+      <div class="brand-text">
+        <h1>GOV STATUS BR</h1>
+        <p>Detalhes do Órgão</p>
+      </div>
+    </a>
+    <nav class="nav">
+      <a href="index.html">← Dashboard</a>
+      <a href="https://github.com/rafaelferreira2312/gov-status-br" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <a href="index.html" class="back-link">← Voltar ao painel geral</a>
+
+  <div class="detail-hero">
+    <img id="org-logo" src="assets/img/logo.png" alt="">
+    <div>
+      <h1 id="org-name">Carregando...</h1>
+      <div class="detail-meta">
+        <span class="chip" id="org-sphere">—</span>
+        <a class="chip" id="org-url" href="#" target="_blank" rel="noopener">—</a>
+        <span class="badge online" id="org-status">—</span>
+      </div>
+      <div class="detail-meta" id="org-contacts" style="margin-top:0.75rem"></div>
+    </div>
+  </div>
+
+  <div id="contingency" class="contingency hidden">
+    <h3>⚠ Site com problemas</h3>
+    <p>Verificando alternativas de acesso...</p>
+  </div>
+
+  <div class="detail-grid">
+    <div>
+      <div class="panel">
+        <h2>Latência — últimas horas</h2>
+        <canvas id="latency-chart" class="latency-chart"></canvas>
+      </div>
+      <div class="panel">
+        <h2>Linha do Tempo de Incidentes</h2>
+        <ul class="timeline" id="timeline"></ul>
+      </div>
+    </div>
+    <div>
+      <div class="panel">
+        <h2>Resumo</h2>
+        <div class="stat-item"><label>Uptime (24h)</label><div class="value green" id="org-uptime">—</div></div>
+        <div class="stat-item"><label>Latência Atual</label><div class="value" id="org-latency">—</div></div>
+        <p class="activity" id="last-update">—</p>
+      </div>
+      <div class="panel">
+        <h2>Calendário de Uptime (30 dias)</h2>
+        <div class="uptime-grid" id="uptime-grid"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p><a href="index.html">Dashboard</a> · <a href="https://github.com/rafaelferreira2312/gov-status-br" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+<script src="assets/js/detail.js"></script>
+</body>
+</html>

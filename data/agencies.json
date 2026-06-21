@@ -1,0 +1,124 @@
+{
+    "agencies": [
+        {
+            "id": "gov-br",
+            "slug": "gov-br",
+            "name": "Portal Gov.br",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www.gov.br/",
+            "logo_url": "https://www.gov.br/logo.png",
+            "contacts": []
+        },
+        {
+            "id": "inss",
+            "slug": "inss",
+            "name": "INSS",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www.gov.br/inss",
+            "logo_url": "https://www.gov.br/inss/pt-br/pagina-inicial/@@images/4f40d223-ec68-48d5-9e22-46a034ec0c04.jpeg",
+            "contacts": []
+        },
+        {
+            "id": "receita-federal",
+            "slug": "receita-federal",
+            "name": "Receita Federal",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www.gov.br/receitafederal",
+            "logo_url": "https://www.gov.br/receitafederal/logo.png",
+            "contacts": []
+        },
+        {
+            "id": "policia-federal",
+            "slug": "policia-federal",
+            "name": "Polícia Federal",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www.gov.br/pf",
+            "logo_url": "https://www.gov.br/pf/logo.png",
+            "contacts": []
+        },
+        {
+            "id": "cgu",
+            "slug": "cgu",
+            "name": "CGU",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www.gov.br/cgu",
+            "logo_url": "https://www.gov.br/cgu/logo.png",
+            "contacts": []
+        },
+        {
+            "id": "dataprev",
+            "slug": "dataprev",
+            "name": "Dataprev",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www.dataprev.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "tcu",
+            "slug": "tcu",
+            "name": "TCU",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://portal.tcu.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "detran-rj",
+            "slug": "detran-rj",
+            "name": "DETRAN RJ",
+            "sphere": "state",
+            "state_letter": "RJ",
+            "base_url": "https://www.detran.rj.gov.br/",
+            "logo_url": "https://www.detran.rj.gov.br/templates/portal/favicon.ico",
+            "contacts": []
+        },
+        {
+            "id": "detran-sp",
+            "slug": "detran-sp",
+            "name": "DETRAN SP",
+            "sphere": "state",
+            "state_letter": "SP",
+            "base_url": "https://www.detran.sp.gov.br/",
+            "logo_url": "https://www.detran.sp.gov.br/7241a9b687ac665422bdc9530cbb35cd.iix?&amp;v=321c451e2bed0310d312fa334391bf7d",
+            "contacts": []
+        },
+        {
+            "id": "senado",
+            "slug": "senado",
+            "name": "Senado Federal",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www25.senado.leg.br/",
+            "logo_url": "https://www25.senado.leg.br/senado-theme/images/favicon/apple-touch-icon.png",
+            "contacts": []
+        },
+        {
+            "id": "camara",
+            "slug": "camara",
+            "name": "Câmara dos Deputados",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www.camara.leg.br/",
+            "logo_url": "https://www.camara.leg.br/tema/assets/images/imagens-compartilhamento/imagem-padrao.jpg",
+            "contacts": []
+        },
+        {
+            "id": "anvisa",
+            "slug": "anvisa",
+            "name": "ANVISA",
+            "sphere": "federal",
+            "state_letter": null,
+            "base_url": "https://www.gov.br/anvisa",
+            "logo_url": "https://www.gov.br/anvisa/logo.png",
+            "contacts": []
+        }
+    ]
+}
