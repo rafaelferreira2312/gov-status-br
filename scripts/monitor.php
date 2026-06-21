@@ -13,8 +13,9 @@ $statusFile = $baseDir . '/data/status.json';
 $historyFile = $baseDir . '/data/history.json';
 
 const MAX_HISTORY = 288; // ~24h a cada 5 min (ajuste conforme cron)
-const SLOW_MS = 3000;
-const TIMEOUT = 8;
+const SLOW_MS = 8000; // gov.br costuma ser lento; evita falso "instável"
+const TIMEOUT = 12;
+const OFFLINE_CONFIRM_CHECKS = 2; // exige falhas consecutivas antes de marcar offline
 
 function loadJson(string $path): array
 {
@@ -85,7 +86,51 @@ function discoverMetadata(array &$agencies): void
     unset($agency);
 }
 
-function checkAgencies(array $agencies): array
+function probeUrl(string $url): array
+{
+    $ch = curl_init();
+    curl_setopt_array($ch, [
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_MAXREDIRS => 5,
+        CURLOPT_TIMEOUT => TIMEOUT,
+        CURLOPT_CONNECTTIMEOUT => 6,
+        CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 GovStatusBR/1.0',
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_HTTPHEADER => ['Accept: text/html,application/xhtml+xml', 'Accept-Language: pt-BR,pt;q=0.9'],
+    ]);
+
+    curl_exec($ch);
+    $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $time = (int) round(curl_getinfo($ch, CURLINFO_TOTAL_TIME) * 1000);
+    $error = curl_error($ch);
+    curl_close($ch);
+
+    if ($error !== '') {
+        return ['status_code' => 0, 'response_time_ms' => 0, 'is_online' => false, 'state' => 'offline'];
+    }
+
+    if ($code >= 200 && $code < 400) {
+        $state = $time >= SLOW_MS ? 'unstable' : 'online';
+        return ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => true, 'state' => $state];
+    }
+
+    if ($code === 403) {
+        // WAF respondeu — site existe, mas bloqueou o robô
+        return ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => true, 'state' => 'unstable'];
+    }
+
+    if ($code >= 500) {
+        return ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => false, 'state' => 'offline'];
+    }
+
+    // 404/410 etc — pode ser URL errada, não necessariamente site caído
+    return ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => false, 'state' => 'offline'];
+}
+
+function checkAgencies(array $agencies, array $history): array
 {
     $mh = curl_multi_init();
     $handles = [];
@@ -97,15 +142,16 @@ function checkAgencies(array $agencies): array
             CURLOPT_URL => $agency['base_url'],
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_MAXREDIRS => 3,
+            CURLOPT_MAXREDIRS => 5,
             CURLOPT_TIMEOUT => TIMEOUT,
-            CURLOPT_CONNECTTIMEOUT => 5,
-            CURLOPT_USERAGENT => 'Mozilla/5.0 (compatible; GovStatusBR/1.0; +https://rafaelferreiradasilva.com.br/gov-status/)',
+            CURLOPT_CONNECTTIMEOUT => 6,
+            CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36 GovStatusBR/1.0',
             CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_ENCODING => '',
+            CURLOPT_HTTPHEADER => ['Accept: text/html,application/xhtml+xml', 'Accept-Language: pt-BR,pt;q=0.9'],
         ]);
         curl_multi_add_handle($mh, $ch);
-        $handles[(int) $ch] = ['ch' => $ch, 'id' => $agency['id']];
+        $handles[(int) $ch] = ['ch' => $ch, 'id' => $agency['id'], 'url' => $agency['base_url']];
     }
 
     $running = null;
@@ -122,19 +168,37 @@ function checkAgencies(array $agencies): array
         $error = curl_error($ch);
 
         if ($error !== '') {
-            $results[$id] = ['status_code' => 0, 'response_time_ms' => 0, 'is_online' => false, 'state' => 'offline'];
+            $check = ['status_code' => 0, 'response_time_ms' => 0, 'is_online' => false, 'state' => 'offline'];
         } elseif ($code >= 200 && $code < 400) {
             $state = $time >= SLOW_MS ? 'unstable' : 'online';
-            $results[$id] = ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => true, 'state' => $state];
+            $check = ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => true, 'state' => $state];
         } elseif ($code === 403) {
-            // WAF/SERPRO costuma retornar 403 para bots — site respondeu, mas bloqueou
-            $results[$id] = ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => true, 'state' => 'unstable'];
-        } elseif ($code >= 400 && $code < 500) {
-            $results[$id] = ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => false, 'state' => 'offline'];
+            $check = ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => true, 'state' => 'unstable'];
+        } elseif ($code >= 500) {
+            $check = ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => false, 'state' => 'offline'];
         } else {
-            $results[$id] = ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => false, 'state' => 'offline'];
+            $check = ['status_code' => $code, 'response_time_ms' => $time, 'is_online' => false, 'state' => 'offline'];
         }
 
+        // Retry único em falha para reduzir falso positivo
+        if (!$check['is_online']) {
+            usleep(300000);
+            $retry = probeUrl($info['url']);
+            if ($retry['is_online']) {
+                $check = $retry;
+            }
+        }
+
+        // Exige falhas consecutivas no histórico antes de marcar offline
+        if (!$check['is_online']) {
+            $recent = array_slice($history[$id] ?? [], -OFFLINE_CONFIRM_CHECKS);
+            $recentFails = count(array_filter($recent, fn($e) => !($e['online'] ?? true)));
+            if ($recentFails < OFFLINE_CONFIRM_CHECKS - 1) {
+                $check['state'] = 'unstable';
+            }
+        }
+
+        $results[$id] = $check;
         curl_multi_remove_handle($mh, $ch);
         curl_close($ch);
     }
@@ -206,8 +270,8 @@ if ($discover) {
 }
 
 echo "Checando " . count($agencies) . " órgãos...\n";
-$checks = checkAgencies($agencies);
 $history = loadJson($historyFile);
+$checks = checkAgencies($agencies, $history);
 $now = time();
 
 foreach ($agencies as $agency) {

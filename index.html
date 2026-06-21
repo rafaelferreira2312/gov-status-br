@@ -15,10 +15,12 @@
 <link rel="icon" type="image/png" href="assets/img/logo.png">
 <link rel="apple-touch-icon" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<div class="bg-grid" aria-hidden="true"></div>
+
 <header class="site-header">
   <div class="container header-inner">
     <a href="index.html" class="brand">
@@ -29,11 +31,12 @@
       </div>
     </a>
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="https://github.com/rafaelferreira2312/gov-status-br" target="_blank" rel="noopener">GitHub</a>
-      <a href="#sobre">Sobre</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="#monitoramento">Relatórios</a>
+      <a href="#sobre">Sobre o Projeto</a>
     </nav>
     <div class="search-box">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       <input type="search" id="search" placeholder="Pesquisar órgão ou site..." aria-label="Pesquisar">
     </div>
   </div>
@@ -41,22 +44,42 @@
 
 <main class="container">
   <div id="alert-banner" class="alert-banner hidden">
-    <strong data-alert-msg>ATENÇÃO</strong>
-    <span data-alert-sub>Carregando status...</span>
+    <div class="alert-icon">⚠</div>
+    <div>
+      <strong data-alert-msg>ATENÇÃO</strong>
+      <span data-alert-sub>Carregando status...</span>
+    </div>
+  </div>
+
+  <div id="status-ok-banner" class="status-ok-banner hidden">
+    <div class="ok-dot"></div>
+    <div>
+      <strong data-ok-msg>Infraestrutura operando normalmente</strong>
+      <span data-ok-sub>—</span>
+    </div>
   </div>
 
   <div class="main-grid">
-    <section>
-      <h2 class="section-title">Serviços Monitorados</h2>
+    <section id="monitoramento">
+      <div id="critical-section" class="critical-section hidden">
+        <h2 class="section-title critical">⚡ Serviços em Alerta / Críticos</h2>
+        <div id="critical-grid" class="cards-grid cards-grid-4"></div>
+      </div>
+
+      <h2 class="section-title">Monitoramento por Categoria</h2>
       <div class="tabs">
         <button class="tab active" data-filter="all">Todos</button>
         <button class="tab" data-filter="federal">Federal</button>
         <button class="tab" data-filter="state">Estadual</button>
         <button class="tab" data-filter="municipal">Municipal</button>
+        <button class="tab" data-filter="essential">Serviços Essenciais</button>
       </div>
-      <div id="cards-grid" class="cards-grid">
+
+      <div id="cards-grid" class="cards-grid cards-grid-4">
         <div class="loading">Carregando status dos órgãos...</div>
       </div>
+
+      <p class="disclaimer">Medição automatizada a partir deste servidor. Em caso de dúvida, confirme no site oficial do órgão.</p>
     </section>
 
     <aside class="sidebar">
@@ -78,10 +101,16 @@
         <div class="stat-item">
           <label>Uptime Geral Agora</label>
           <div class="value green" id="stat-uptime">—</div>
+          <div class="trend-bar"><div id="uptime-bar" class="trend-fill"></div></div>
         </div>
-        <p class="activity" id="last-update">Aguardando primeira checagem...</p>
+        <p class="activity mono" id="last-update">Aguardando primeira checagem...</p>
         <hr class="stat-divider">
-        <p class="activity">Projeto open source. Dados coletados por requisições HTTP leves a cada minuto.</p>
+        <div class="stat-item">
+          <label>Atividade Recente</label>
+          <p class="activity" id="stat-activity">Monitoramento ativo.</p>
+        </div>
+        <hr class="stat-divider">
+        <p class="activity">Projeto open source · Checagens HTTP leves a cada 5 min.</p>
       </div>
     </aside>
   </div>
@@ -90,10 +119,10 @@
 <footer class="site-footer" id="sobre">
   <p>
     <a href="https://github.com/rafaelferreira2312/gov-status-br" target="_blank" rel="noopener">Projeto Open Source</a>
+    <a href="https://github.com/rafaelferreira2312/gov-status-br" target="_blank" rel="noopener">Colabore no GitHub</a>
     <a href="https://github.com/rafaelferreira2312/gov-status-br/issues" target="_blank" rel="noopener">Reportar erro</a>
-    <a href="https://rafaelferreiradasilva.com.br/">Rafael Ferreira</a>
   </p>
-  <p style="margin-top:0.5rem">GovStatus BR · Apache-2.0 · Transparência digital para o cidadão brasileiro</p>
+  <p class="footer-sub">GovStatus BR · Apache-2.0 · Transparência digital para o cidadão brasileiro</p>
 </footer>
 
 <script src="assets/js/dashboard.js"></script>

@@ -6,6 +6,7 @@
             "name": "Portal Gov.br",
             "sphere": "federal",
             "state_letter": null,
+            "category": "essential",
             "base_url": "https://www.gov.br/",
             "logo_url": "https://www.gov.br/logo.png",
             "contacts": []
@@ -16,6 +17,7 @@
             "name": "INSS",
             "sphere": "federal",
             "state_letter": null,
+            "category": "essential",
             "base_url": "https://www.gov.br/inss",
             "logo_url": "https://www.gov.br/inss/pt-br/pagina-inicial/@@images/4f40d223-ec68-48d5-9e22-46a034ec0c04.jpeg",
             "contacts": []
@@ -26,6 +28,7 @@
             "name": "Receita Federal",
             "sphere": "federal",
             "state_letter": null,
+            "category": "essential",
             "base_url": "https://www.gov.br/receitafederal",
             "logo_url": "https://www.gov.br/receitafederal/logo.png",
             "contacts": []
@@ -36,6 +39,7 @@
             "name": "Polícia Federal",
             "sphere": "federal",
             "state_letter": null,
+            "category": "essential",
             "base_url": "https://www.gov.br/pf",
             "logo_url": "https://www.gov.br/pf/logo.png",
             "contacts": []
@@ -46,6 +50,7 @@
             "name": "CGU",
             "sphere": "federal",
             "state_letter": null,
+            "category": "essential",
             "base_url": "https://www.gov.br/cgu",
             "logo_url": "https://www.gov.br/cgu/logo.png",
             "contacts": []
@@ -56,8 +61,9 @@
             "name": "Dataprev",
             "sphere": "federal",
             "state_letter": null,
+            "category": "essential",
             "base_url": "https://www.dataprev.gov.br/",
-            "logo_url": null,
+            "logo_url": "https://www.dataprev.gov.br/sites/default/files/field/image/logodataprevmateriaportal_2_1_1.jpg",
             "contacts": []
         },
         {
@@ -66,28 +72,20 @@
             "name": "TCU",
             "sphere": "federal",
             "state_letter": null,
-            "base_url": "https://portal.tcu.gov.br/",
+            "category": "essential",
+            "base_url": "https://www.tcu.gov.br/",
             "logo_url": null,
             "contacts": []
         },
         {
-            "id": "detran-rj",
-            "slug": "detran-rj",
-            "name": "DETRAN RJ",
-            "sphere": "state",
-            "state_letter": "RJ",
-            "base_url": "https://www.detran.rj.gov.br/",
-            "logo_url": "https://www.detran.rj.gov.br/templates/portal/favicon.ico",
-            "contacts": []
-        },
-        {
-            "id": "detran-sp",
-            "slug": "detran-sp",
-            "name": "DETRAN SP",
-            "sphere": "state",
-            "state_letter": "SP",
-            "base_url": "https://www.detran.sp.gov.br/",
-            "logo_url": "https://www.detran.sp.gov.br/7241a9b687ac665422bdc9530cbb35cd.iix?&amp;v=321c451e2bed0310d312fa334391bf7d",
+            "id": "anvisa",
+            "slug": "anvisa",
+            "name": "ANVISA",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.gov.br/anvisa",
+            "logo_url": "https://www.gov.br/anvisa/logo.png",
             "contacts": []
         },
         {
@@ -96,6 +94,7 @@
             "name": "Senado Federal",
             "sphere": "federal",
             "state_letter": null,
+            "category": "essential",
             "base_url": "https://www25.senado.leg.br/",
             "logo_url": "https://www25.senado.leg.br/senado-theme/images/favicon/apple-touch-icon.png",
             "contacts": []
@@ -106,18 +105,404 @@
             "name": "Câmara dos Deputados",
             "sphere": "federal",
             "state_letter": null,
+            "category": "essential",
             "base_url": "https://www.camara.leg.br/",
             "logo_url": "https://www.camara.leg.br/tema/assets/images/imagens-compartilhamento/imagem-padrao.jpg",
             "contacts": []
         },
         {
-            "id": "anvisa",
-            "slug": "anvisa",
-            "name": "ANVISA",
+            "id": "planalto",
+            "slug": "planalto",
+            "name": "Presidência da República",
             "sphere": "federal",
             "state_letter": null,
-            "base_url": "https://www.gov.br/anvisa",
-            "logo_url": "https://www.gov.br/anvisa/logo.png",
+            "category": "essential",
+            "base_url": "https://www.gov.br/planalto",
+            "logo_url": "https://www.gov.br/planalto/pt-br/pagina-inicial/@@images/e02aaf95-fbc2-4edf-a59e-8a42da0406c2.jpeg",
+            "contacts": []
+        },
+        {
+            "id": "ministerio-saude",
+            "slug": "ministerio-saude",
+            "name": "Ministério da Saúde",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.gov.br/saude",
+            "logo_url": "https://www.gov.br/saude/logo.png",
+            "contacts": []
+        },
+        {
+            "id": "ministerio-educacao",
+            "slug": "ministerio-educacao",
+            "name": "Ministério da Educação",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.gov.br/mec",
+            "logo_url": "https://www.gov.br/mec/pt-br/pt-br/@@images/e7df466a-1198-48e8-91d7-f200c3d51bd7.png",
+            "contacts": []
+        },
+        {
+            "id": "ministerio-defesa",
+            "slug": "ministerio-defesa",
+            "name": "Ministério da Defesa",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.gov.br/defesa",
+            "logo_url": "https://www.gov.br/defesa/pt-br/pagina-inicial/@@images/c5092eaf-53b3-43fa-9691-b581ac947931.png",
+            "contacts": []
+        },
+        {
+            "id": "defesa-civil",
+            "slug": "defesa-civil",
+            "name": "Defesa Civil Nacional",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.gov.br/mdr/pt-br/assuntos/defesa-civil",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "ibge",
+            "slug": "ibge",
+            "name": "IBGE",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.ibge.gov.br/",
+            "logo_url": "https://www.ibge.gov.br/templates/novo_portal_base/imagens/icons/share-img.jpg",
+            "contacts": [
+                {
+                    "type": "email",
+                    "value": "postmaster@ibge.gov.br"
+                }
+            ]
+        },
+        {
+            "id": "caixa",
+            "slug": "caixa",
+            "name": "Caixa Econômica Federal",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.caixa.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "banco-brasil",
+            "slug": "banco-brasil",
+            "name": "Banco do Brasil",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.bb.com.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "correios",
+            "slug": "correios",
+            "name": "Correios",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.correios.com.br/",
+            "logo_url": "https://www.correios.com.br/++theme++tema-do-portal-correios/static/imagens/favicon-32x32.png",
+            "contacts": []
+        },
+        {
+            "id": "stf",
+            "slug": "stf",
+            "name": "STF",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.stf.jus.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "tse",
+            "slug": "tse",
+            "name": "TSE",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.tse.jus.br/",
+            "logo_url": "https://www.tse.jus.br/@@site-logo/logo.jpg",
+            "contacts": []
+        },
+        {
+            "id": "anatel",
+            "slug": "anatel",
+            "name": "ANATEL",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.gov.br/anatel",
+            "logo_url": "https://www.gov.br/anatel/favicon.ico",
+            "contacts": [
+                {
+                    "type": "email",
+                    "value": "algo@dominio.com"
+                }
+            ]
+        },
+        {
+            "id": "aneel",
+            "slug": "aneel",
+            "name": "ANEEL",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.gov.br/aneel",
+            "logo_url": "https://www.gov.br/aneel/logo.png",
+            "contacts": []
+        },
+        {
+            "id": "serpro",
+            "slug": "serpro",
+            "name": "Serpro",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://www.serpro.gov.br/",
+            "logo_url": "https://www.serpro.gov.br/++theme++serpro.portalserprotema/++resource++serpro.portalserprotema/img/capa/favico.png",
+            "contacts": []
+        },
+        {
+            "id": "conecte-sus",
+            "slug": "conecte-sus",
+            "name": "Meu SUS Digital",
+            "sphere": "federal",
+            "state_letter": null,
+            "category": "essential",
+            "base_url": "https://meususdigital.saude.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "governo-rj",
+            "slug": "governo-rj",
+            "name": "Governo do Rio de Janeiro",
+            "sphere": "state",
+            "state_letter": "RJ",
+            "category": "essential",
+            "base_url": "https://www.rj.gov.br/",
+            "logo_url": "https://www.rj.gov.br/assets/images/rjlogo.svg",
+            "contacts": []
+        },
+        {
+            "id": "governo-sp",
+            "slug": "governo-sp",
+            "name": "Governo de São Paulo",
+            "sphere": "state",
+            "state_letter": "SP",
+            "category": "essential",
+            "base_url": "https://www.saopaulo.sp.gov.br/",
+            "logo_url": "https://sggd.sp.gov.br/statics/img/logo-meta.png",
+            "contacts": []
+        },
+        {
+            "id": "governo-mg",
+            "slug": "governo-mg",
+            "name": "Governo de Minas Gerais",
+            "sphere": "state",
+            "state_letter": "MG",
+            "category": "essential",
+            "base_url": "https://www.mg.gov.br/",
+            "logo_url": "https://www.mg.gov.br/sites/default/files/imagens/logos/mg_gov_br_logo_social.png",
+            "contacts": []
+        },
+        {
+            "id": "governo-pr",
+            "slug": "governo-pr",
+            "name": "Governo do Paraná",
+            "sphere": "state",
+            "state_letter": "PR",
+            "category": "essential",
+            "base_url": "https://www.parana.pr.gov.br/",
+            "logo_url": "https://www.parana.pr.gov.br/sites/default/themes/custom/aen/favicon.ico",
+            "contacts": []
+        },
+        {
+            "id": "governo-ba",
+            "slug": "governo-ba",
+            "name": "Governo da Bahia",
+            "sphere": "state",
+            "state_letter": "BA",
+            "category": "essential",
+            "base_url": "https://www.ba.gov.br/",
+            "logo_url": "https://www.ba.gov.br/assets/img/2023/bagov-500x500.png",
+            "contacts": []
+        },
+        {
+            "id": "governo-rs",
+            "slug": "governo-rs",
+            "name": "Governo do Rio Grande do Sul",
+            "sphere": "state",
+            "state_letter": "RS",
+            "category": "essential",
+            "base_url": "https://www.estado.rs.gov.br/",
+            "logo_url": "https://www.estado.rs.gov.br/upload/recortes/202403/20102235_2122913_GD.jpg",
+            "contacts": []
+        },
+        {
+            "id": "detran-rj",
+            "slug": "detran-rj",
+            "name": "DETRAN RJ",
+            "sphere": "state",
+            "state_letter": "RJ",
+            "category": "essential",
+            "base_url": "https://www.detran.rj.gov.br/",
+            "logo_url": "https://www.detran.rj.gov.br/templates/portal/favicon.ico",
+            "contacts": []
+        },
+        {
+            "id": "detran-sp",
+            "slug": "detran-sp",
+            "name": "DETRAN SP",
+            "sphere": "state",
+            "state_letter": "SP",
+            "category": "essential",
+            "base_url": "https://www.detran.sp.gov.br/",
+            "logo_url": "https://www.detran.sp.gov.br/7241a9b687ac665422bdc9530cbb35cd.iix?&amp;v=321c451e2bed0310d312fa334391bf7d",
+            "contacts": []
+        },
+        {
+            "id": "detran-mg",
+            "slug": "detran-mg",
+            "name": "DETRAN MG",
+            "sphere": "state",
+            "state_letter": "MG",
+            "category": "essential",
+            "base_url": "https://www.detran.mg.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "defesa-civil-rj",
+            "slug": "defesa-civil-rj",
+            "name": "Defesa Civil RJ",
+            "sphere": "state",
+            "state_letter": "RJ",
+            "category": "essential",
+            "base_url": "https://defesacivil.rj.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "defesa-civil-sp",
+            "slug": "defesa-civil-sp",
+            "name": "Defesa Civil SP",
+            "sphere": "state",
+            "state_letter": "SP",
+            "category": "essential",
+            "base_url": "https://www.defesacivil.sp.gov.br/",
+            "logo_url": "https://sggd.sp.gov.br/statics/img/logo-meta.png",
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-sp",
+            "slug": "prefeitura-sp",
+            "name": "Prefeitura de São Paulo",
+            "sphere": "municipal",
+            "state_letter": "SP",
+            "category": "essential",
+            "base_url": "https://www.capital.sp.gov.br/",
+            "logo_url": "https://prefeitura.sp.gov.br/documents/34276/25188012/logo_PrefSP_sem+fundo_horizontal_fundo+claro.png/d65a5a82-c5e6-dfc0-eae6-bdbcfe5502d6?version=1.1&amp;t=1755693927763&amp;imagePreview=1",
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-rj",
+            "slug": "prefeitura-rj",
+            "name": "Prefeitura do Rio de Janeiro",
+            "sphere": "municipal",
+            "state_letter": "RJ",
+            "category": "essential",
+            "base_url": "https://www.rio.rj.gov.br/",
+            "logo_url": "https://www.rio.rj.gov.br/Portal-2018-theme/images/favicon.ico",
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-bh",
+            "slug": "prefeitura-bh",
+            "name": "Prefeitura de Belo Horizonte",
+            "sphere": "municipal",
+            "state_letter": "MG",
+            "category": "essential",
+            "base_url": "https://prefeitura.pbh.gov.br/",
+            "logo_url": "https://prefeitura.pbh.gov.br/themes/gavias_vinor/favicon.ico",
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-curitiba",
+            "slug": "prefeitura-curitiba",
+            "name": "Prefeitura de Curitiba",
+            "sphere": "municipal",
+            "state_letter": "PR",
+            "category": "essential",
+            "base_url": "https://www.curitiba.pr.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-poa",
+            "slug": "prefeitura-poa",
+            "name": "Prefeitura de Porto Alegre",
+            "sphere": "municipal",
+            "state_letter": "RS",
+            "category": "essential",
+            "base_url": "https://portoalegre.rs.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-recife",
+            "slug": "prefeitura-recife",
+            "name": "Prefeitura de Recife",
+            "sphere": "municipal",
+            "state_letter": "PE",
+            "category": "essential",
+            "base_url": "https://www.recife.pe.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-fortaleza",
+            "slug": "prefeitura-fortaleza",
+            "name": "Prefeitura de Fortaleza",
+            "sphere": "municipal",
+            "state_letter": "CE",
+            "category": "essential",
+            "base_url": "https://www.fortaleza.ce.gov.br/",
+            "logo_url": null,
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-brasilia",
+            "slug": "prefeitura-brasilia",
+            "name": "Prefeitura de Brasília",
+            "sphere": "municipal",
+            "state_letter": "DF",
+            "category": "essential",
+            "base_url": "https://www.brasilia.df.gov.br/",
+            "logo_url": "https://www.df.gov.br/wp-conteudo/uploads/2020/05/cropped-39bbeab1-e581-42ac-a0b7-fa90c81c21d8-32x32.jpg",
+            "contacts": []
+        },
+        {
+            "id": "prefeitura-salvador",
+            "slug": "prefeitura-salvador",
+            "name": "Prefeitura de Salvador",
+            "sphere": "municipal",
+            "state_letter": "BA",
+            "category": "essential",
+            "base_url": "https://www.salvador.ba.gov.br/",
+            "logo_url": "https://salvador.ba.gov.br/wp-content/themes/semit/icon.ico",
             "contacts": []
         }
     ]
