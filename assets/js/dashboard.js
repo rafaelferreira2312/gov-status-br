@@ -91,14 +91,16 @@ function cardHtml(agency) {
   return `
     <article class="card ${status}" onclick="location.href='orgao.html?slug=${agency.slug}'">
       <div class="card-header">
-        <div class="card-org">
-          <img src="${logo}" alt="" loading="lazy" onerror="this.src='assets/img/logo.png'">
-          <div>
-            <h3>${agency.name}</h3>
-            <small>${sphere}${stateBadge}</small>
+        <div class="card-header-top">
+          <div class="card-org">
+            <img src="${logo}" alt="" loading="lazy" onerror="this.src='assets/img/logo.png'">
+            <div class="card-org-info">
+              <h3>${agency.name}</h3>
+              <small>${sphere}${stateBadge}</small>
+            </div>
           </div>
+          <span class="badge ${status}">${STATUS_LABELS[status] || status}</span>
         </div>
-        <span class="badge ${status}">${STATUS_LABELS[status] || status}</span>
       </div>
       <div class="sparkline-wrap">
         <canvas class="sparkline" data-spark="${agency.id}" data-status="${status}"></canvas>
